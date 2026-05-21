@@ -39,12 +39,3 @@ def run_security_agent(code: str):
 
    
 
-if __name__ == "__main__":
-    test_code = """
-def login(username, password):
-    query = "SELECT * FROM users WHERE username='" + username + "'"
-    return db.execute(query)
-"""
-    findings = run_security_agent(test_code)
-    for f in findings:
-        print(f)
