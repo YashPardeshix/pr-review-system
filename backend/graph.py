@@ -3,6 +3,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.types import interrupt, Command
 import sqlite3
+from security_agent import run_security_agent
 
 
 
@@ -11,7 +12,9 @@ def code_quality_node(state:ReviewState):
 
 
 def security_node(state:ReviewState):
-    return {}
+    code = state["code"]
+    findings = run_security_agent(code)
+    return {"findings": findings}
 
 
 def style_node(state:ReviewState):
@@ -21,7 +24,7 @@ def style_node(state:ReviewState):
 def supervisor_node(state:ReviewState):
     findings = state.get("findings", [])
     for finding in findings:
-        if finding["severity"] in ["HIGH", "CRITICAL"]:
+        if finding.severity in ["HIGH", "CRITICAL"]:
             human_decision = interrupt("Human review required")
     return {}
 
