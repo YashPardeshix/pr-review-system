@@ -32,7 +32,10 @@ def supervisor_node(state:ReviewState):
     for finding in findings:
         if finding.severity in ["HIGH", "CRITICAL"]:
             human_decision = interrupt("Human review required")
-    return {}
+            break
+    else: 
+        human_decision = "auto_approved"
+    return {"human_decision": human_decision}
 
 
 builder = StateGraph(ReviewState)
