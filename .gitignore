@@ -3,3 +3,6 @@ checkpoints.sqlite
 __pycache__/
 *.pyc
 .DS_Store
+node_modules/
+frontend/node_modules/
+package-lock.json
