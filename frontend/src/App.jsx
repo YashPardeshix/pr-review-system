@@ -1,5 +1,6 @@
 import { useState } from "react"
 import SubmitView from "./SubmitView"
+import PendingView from "./PendingView"
 
 function App() {
   const [view, setView] = useState("submit")
@@ -11,10 +12,14 @@ function App() {
     setView("pending")
 }
 
+const handleApprove = () => {
+  setView("history")
+}
+
   return (
     <div>
       {view === "submit" && <SubmitView onSubmit={handleSubmit} />}
-      {view === "pending" && <p>Pending View</p>}
+      {view === "pending" && <PendingView threadId={threadId} onApprove={handleApprove}/>}
       {view === "history" && <p>History View</p>}
     </div>
   )
