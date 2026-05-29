@@ -18,3 +18,5 @@ function PendingView({ threadId, onApprove }) {
       </div>
     )
   }
+
+  export default PendingView
