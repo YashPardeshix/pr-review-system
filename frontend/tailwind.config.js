@@ -1,0 +1,38 @@
+export default {
+    darkMode: "class",
+    content: ["./index.html", "./src/**/*.{js,jsx}"],
+    theme: {
+      extend: {
+        colors: {
+          "on-surface": "#e1e2ec",
+          "on-surface-variant": "#c2c6d6",
+          "surface-variant": "#32353c",
+          "outline-variant": "#424754",
+          "outline": "#8c909f",
+          "surface": "#10131a",
+          "surface-container": "#1d2027",
+          "surface-container-high": "#272a31",
+          "surface-container-highest": "#32353c",
+          "surface-container-lowest": "#0b0e15",
+          "background": "#10131a",
+          "primary": "#adc6ff",
+          "primary-container": "#4d8eff",
+          "on-primary": "#002e6a",
+          "on-primary-container": "#00285d",
+          "secondary": "#b9c8de",
+          "secondary-container": "#39485a",
+          "on-secondary-container": "#a7b6cc",
+          "error": "#ffb4ab",
+          "error-container": "#93000a",
+          "on-error": "#690005",
+          "on-error-container": "#ffdad6",
+          "tertiary": "#ffb786",
+          "tertiary-container": "#df7412",
+          "on-tertiary-container": "#461f00",
+        },
+        fontFamily: {
+          mono: ["JetBrains Mono", "monospace"],
+        },
+      },
+    },
+  }

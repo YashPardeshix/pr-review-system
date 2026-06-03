@@ -25,8 +25,9 @@ class ApprovalDecision(BaseModel):
 def review(submission: CodeSubmission):
     thread_id = str(uuid.uuid4())
     config = {"configurable": {"thread_id": thread_id}}
-    graph.invoke({"code": submission.code}, config)
-    return {"thread_id": thread_id, "status": "pending"}
+    result = graph.invoke({"code": submission.code}, config)
+    findings = [f.dict() for f in result.get("findings", [])]
+    return {"thread_id": thread_id, "status": "pending", "findings": findings}
 
 
 @app.post("/approve")
