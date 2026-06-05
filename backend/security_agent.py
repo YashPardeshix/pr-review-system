@@ -33,9 +33,11 @@ def run_security_agent(code: str):
     )
     response_text = response.choices[0].message.content
     response_text = response_text.strip().strip("```json").strip("```").strip()
-    data = json.loads(response_text)
-    findings = [Finding(**item) for item in data]
+    try:
+        data = json.loads(response_text)
+        findings = [Finding(**item) for item in data]
+    except Exception:
+        findings = []
     return findings
-
    
 
