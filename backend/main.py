@@ -7,6 +7,7 @@ import uuid
 import os
 from dotenv import load_dotenv
 from datetime import datetime
+import certifi 
 
 load_dotenv()
 
@@ -19,7 +20,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = MongoClient(os.getenv("MONGODB_URI"))
+
+
+client = MongoClient(os.getenv("MONGODB_URI"), tlsCAFile=certifi.where())
+
 db = client["pr_review_system"]
 reviews_collection = db["reviews"]
 
