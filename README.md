@@ -4,10 +4,6 @@ A multi-agent code review system with human-in-the-loop approval built on LangGr
 
 Tested on 10 real open source GitHub PRs.
 
-## Demo
-
-> 2-minute Loom demo: [ADD YOUR LOOM LINK HERE]
-
 ## Architecture
 
 ```
