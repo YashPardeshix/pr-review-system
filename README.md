@@ -125,6 +125,6 @@ Open `http://localhost:5173`
 
 ## Known Limitations
 
-- No authentication on API endpoints — production deployment would require API key auth at minimum
-- SqliteSaver checkpoint file is local — not suitable for multi-instance deployment
+- No authentication on API endpoints — production deployment would require API key auth at minimum.
+- SqliteSaver checkpoint file is local — not suitable for multi-instance deployment.
 - Duplicate findings possible when multiple agents flag the same issue.
